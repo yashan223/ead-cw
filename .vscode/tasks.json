@@ -2,18 +2,29 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Build Java Project",
+			"label": "Clean and Build",
 			"type": "shell",
-			"command": "ant",
+			"command": "cmd",
 			"args": [
-				"clean",
-				"compile"
+				"/c",
+				"rmdir /s /q build\\classes 2>nul & mkdir build\\classes 2>nul & javac -cp \"src;src\\javacw\\lib\\*\" -d build\\classes src\\javacw\\dao\\*.java src\\javacw\\model\\*.java src\\javacw\\gui\\*.java src\\javacw\\*.java && echo Build completed successfully"
 			],
 			"group": "build",
 			"isBackground": false,
-			"problemMatcher": [
-				"$javac"
-			]
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Application",
+			"type": "shell",
+			"command": "java",
+			"args": [
+				"-cp",
+				"build\\classes;src\\javacw\\lib\\*",
+				"javacw.Main"
+			],
+			"group": "build",
+			"isBackground": false,
+			"dependsOn": "Clean and Build"
 		}
 	]
 }

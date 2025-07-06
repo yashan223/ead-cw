@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "javacw.Main",
+            "projectName": "JAVACW",
+            "classPaths": [
+                "${workspaceFolder}/build/classes",
+                "${workspaceFolder}/src/javacw/lib/mysql-connector-j-9.3.0.jar",
+                "${workspaceFolder}/src/javacw/lib/commons-beanutils-1.9.4.jar",
+                "${workspaceFolder}/src/javacw/lib/commons-collections-3.2.2.jar",
+                "${workspaceFolder}/src/javacw/lib/commons-collections4-4.4.jar",
+                "${workspaceFolder}/src/javacw/lib/commons-digester-2.1.jar",
+                "${workspaceFolder}/src/javacw/lib/commons-logging-1.2.jar",
+                "${workspaceFolder}/src/javacw/lib/itext-2.1.7.jar",
+                "${workspaceFolder}/src/javacw/lib/jasperreports-6.20.6.jar",
+                "${workspaceFolder}/src/javacw/lib/jcommon-1.0.23.jar",
+                "${workspaceFolder}/src/javacw/lib/jfreechart-1.0.19.jar"
+            ],
+            "preLaunchTask": "Clean and Build"
+        }
+    ]
+}
