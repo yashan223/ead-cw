@@ -51,6 +51,57 @@ INSERT INTO `students` (`student_id`, `student_number`, `first_name`, `last_name
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `student_class_enrollments`
+--
+
+CREATE TABLE `student_class_enrollments` (
+  `enrollment_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `assignment_id` int(11) NOT NULL,
+  `enrollment_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status` enum('Active','Inactive','Pending','Completed','Dropped') DEFAULT 'Active',
+  `grade_achieved` varchar(5) DEFAULT NULL,
+  `attendance_percentage` decimal(5,2) DEFAULT NULL,
+  `remarks` text DEFAULT NULL,
+  `date_modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `student_class_enrollments`
+--
+
+INSERT INTO `student_class_enrollments` (`enrollment_id`, `student_id`, `assignment_id`, `enrollment_date`, `status`, `grade_achieved`, `attendance_percentage`, `remarks`, `date_modified`) VALUES
+(1, 1, 1, '2025-07-06 11:00:00', 'Active', NULL, 95.50, 'Excellent participation in advanced mathematics', '2025-07-06 11:00:00'),
+(2, 1, 2, '2025-07-06 11:30:00', 'Active', NULL, 88.20, 'Good progress in English comprehension', '2025-07-06 11:30:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher_subject_assignments`
+--
+
+CREATE TABLE `teacher_subject_assignments` (
+  `assignment_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `grade` varchar(20) NOT NULL,
+  `schedule` varchar(255) DEFAULT NULL,
+  `remarks` text DEFAULT NULL,
+  `date_assigned` timestamp NOT NULL DEFAULT current_timestamp(),
+  `is_active` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `teacher_subject_assignments`
+--
+
+INSERT INTO `teacher_subject_assignments` (`assignment_id`, `teacher_id`, `subject`, `grade`, `schedule`, `remarks`, `date_assigned`, `is_active`) VALUES
+(1, 1, 'Mathematics', 'Grade 10', 'Mon-Wed-Fri 9:00-10:00', 'Advanced Mathematics curriculum', '2025-07-06 10:00:00', 1),
+(2, 2, 'English', 'Grade 4', 'Tue-Thu 10:00-11:00', 'Basic English comprehension', '2025-07-06 10:30:00', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `teachers`
 --
 
@@ -115,6 +166,24 @@ ALTER TABLE `students`
   ADD UNIQUE KEY `student_number` (`student_number`);
 
 --
+-- Indexes for table `student_class_enrollments`
+--
+ALTER TABLE `student_class_enrollments`
+  ADD PRIMARY KEY (`enrollment_id`),
+  ADD KEY `student_id` (`student_id`),
+  ADD KEY `assignment_id` (`assignment_id`),
+  ADD KEY `idx_student_status` (`student_id`, `status`),
+  ADD KEY `idx_enrollment_date` (`enrollment_date`);
+
+--
+-- Indexes for table `teacher_subject_assignments`
+--
+ALTER TABLE `teacher_subject_assignments`
+  ADD PRIMARY KEY (`assignment_id`),
+  ADD KEY `teacher_id` (`teacher_id`),
+  ADD KEY `idx_subject_grade` (`subject`, `grade`);
+
+--
 -- Indexes for table `teachers`
 --
 ALTER TABLE `teachers`
@@ -139,6 +208,18 @@ ALTER TABLE `students`
   MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `student_class_enrollments`
+--
+ALTER TABLE `student_class_enrollments`
+  MODIFY `enrollment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `teacher_subject_assignments`
+--
+ALTER TABLE `teacher_subject_assignments`
+  MODIFY `assignment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
@@ -149,6 +230,19 @@ ALTER TABLE `teachers`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- Constraints for table `student_class_enrollments`
+--
+ALTER TABLE `student_class_enrollments`
+  ADD CONSTRAINT `fk_student_enrollment` FOREIGN KEY (`student_id`) REFERENCES `students` (`student_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_assignment_enrollment` FOREIGN KEY (`assignment_id`) REFERENCES `teacher_subject_assignments` (`assignment_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `teacher_subject_assignments`
+--
+ALTER TABLE `teacher_subject_assignments`
+  ADD CONSTRAINT `fk_teacher_assignment` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`teacher_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

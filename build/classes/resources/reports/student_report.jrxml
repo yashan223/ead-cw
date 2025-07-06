@@ -40,7 +40,7 @@
                 <textElement textAlignment="Center">
                     <font size="12"/>
                 </textElement>
-                <text><![CDATA[School Management System]]></text>
+                <text><![CDATA[CodeFront Academy]]></text>
             </staticText>
             <textField pattern="dd/MM/yyyy HH:mm">
                 <reportElement x="400" y="50" width="155" height="15"/>

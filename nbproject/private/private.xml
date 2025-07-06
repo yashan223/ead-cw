@@ -3,7 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/Main.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/gui/Jreports.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/gui/ViewStudents.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/gui/UserDashboard.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/gui/RegisterTeacher.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/gui/ManageUsers.java</file>
             <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/gui/LoginFrame.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/gui/AdminDashbord.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/model/Student.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/dao/DatabaseConnection.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/dao/StudentDAO.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/dao/UserDAO.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/dao/TeacherDAO.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/model/Teacher.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/model/Users.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/gui/ClassReg.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/gui/StudentClassReg.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/dao/StudentClassEnrollmentDAO.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/model/StudentClassEnrollment.java</file>
+            <file>file:/C:/Users/Yashan%20Perera/Documents/NetBeansProjects/JAVACW/src/javacw/test/StudentClassRegTest.java</file>
         </group>
     </open-files>
 </project-private>
